@@ -50,7 +50,10 @@ class RedditRepositoryMockWebTest {
         result.data.data.children[0].data.apply {
             Assert.assertEquals(id, "ik1x3g")
             Assert.assertEquals(title, "Kotlin Multiplatform Mobile goes Alpha – Kotlin Blog")
-            Assert.assertEquals(url_overridden_by_dest, "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/")
+            Assert.assertEquals(
+                url_overridden_by_dest,
+                "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/"
+            )
             Assert.assertEquals(selftext, "")
         }
         Assert.assertEquals(result.data.data.after, "t3_ik1x3g")
@@ -66,13 +69,19 @@ class RedditRepositoryMockWebTest {
         result.data.data.children[0].data.apply {
             Assert.assertEquals(id, "ik1x3g")
             Assert.assertEquals(title, "Kotlin Multiplatform Mobile goes Alpha – Kotlin Blog")
-            Assert.assertEquals(url_overridden_by_dest, "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/")
+            Assert.assertEquals(
+                url_overridden_by_dest,
+                "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/"
+            )
             Assert.assertEquals(selftext, "")
         }
         result.data.data.children[1].data.apply {
             Assert.assertEquals(id, "ik1x3g")
             Assert.assertEquals(title, "Kotlin Multiplatform Mobile goes Alpha – Kotlin Blog")
-            Assert.assertEquals(url_overridden_by_dest, "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/")
+            Assert.assertEquals(
+                url_overridden_by_dest,
+                "https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/"
+            )
             Assert.assertEquals(selftext, "")
         }
         Assert.assertEquals(result.data.data.after, "t3_ik1x3g")
