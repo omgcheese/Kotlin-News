@@ -1,4 +1,4 @@
-include ':features:articles-api'
+include ':data-api'
 include ':domain-api'
 include ':data'
 include ':domain'
