@@ -1,2 +1,7 @@
+include ':features:articles-api'
+include ':domain-api'
+include ':data'
+include ':domain'
+include ':features:articles'
 include ':app'
 rootProject.name = "Kotlin News"
