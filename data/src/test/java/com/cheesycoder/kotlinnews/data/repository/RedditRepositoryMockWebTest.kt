@@ -1,6 +1,6 @@
 package com.cheesycoder.kotlinnews.data.repository
 
-import com.cheesycoder.kotlinnews.data.model.Result
+import com.cheesycoder.kotlinnews.common.model.Result
 import com.cheesycoder.kotlinnews.data.service.RedditService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

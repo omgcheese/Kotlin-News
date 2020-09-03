@@ -13,3 +13,5 @@ jobs:
           command: ./gradlew ktlint
       - run:
           command: ./gradlew :data:testDebugUnitTest
+      - run:
+          command: ./gradlew :domain:testDebugUnitTest

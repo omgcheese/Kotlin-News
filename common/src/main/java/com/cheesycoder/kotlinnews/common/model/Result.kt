@@ -1,4 +1,4 @@
-package com.cheesycoder.kotlinnews.data.model
+package com.cheesycoder.kotlinnews.common.model
 
 sealed class Result<out T> {
     class Success<T>(val data: T) : Result<T>()

@@ -1,6 +1,6 @@
 package com.cheesycoder.kotlinnews.data.exts
 
-import com.cheesycoder.kotlinnews.data.model.Result
+import com.cheesycoder.kotlinnews.common.model.Result
 import retrofit2.Response
 
 private const val EMPTY_BODY_ERROR = "payload is empty. Please check the response definition."

@@ -1,7 +1,7 @@
 package com.cheesycoder.kotlinnews.data.repository
 
+import com.cheesycoder.kotlinnews.common.model.Result
 import com.cheesycoder.kotlinnews.data.model.RedditArticles
-import com.cheesycoder.kotlinnews.data.model.Result
 import com.cheesycoder.kotlinnews.data.service.RedditService
 import io.mockk.coEvery
 import io.mockk.mockk
