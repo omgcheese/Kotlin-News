@@ -2,8 +2,9 @@ package com.cheesycoder.kotlinnews.domain.usecase
 
 import com.cheesycoder.kotlinnews.common.model.Result
 import com.cheesycoder.kotlinnews.data.repository.RedditRepository
+import com.cheesycoder.kotlinnews.domain.controller.ArticleItemTransformer
 import com.cheesycoder.kotlinnews.domain.controller.ArticleResultFlattener
-import com.cheesycoder.kotlinnews.domain.model.RedditArticleList
+import com.cheesycoder.kotlinnews.domain.model.RedditArticleListItem
 import com.cheesycoder.kotlinnews.domain.util.DataFixture
 import io.mockk.coEvery
 import io.mockk.every
@@ -23,11 +24,17 @@ class SubRedditListFetchUseCaseImplTest {
     private var usecase: SubRedditListFetchUseCase? = null
     private val repository: RedditRepository = mockk()
     private val flattener: ArticleResultFlattener = mockk()
+    private val transformer: ArticleItemTransformer = mockk()
     private val testCoroutineDispatcher = TestCoroutineDispatcher()
 
     @Before
     fun setUp() {
-        usecase = SubRedditListFetchUseCaseImpl(repository, flattener, testCoroutineDispatcher)
+        usecase = SubRedditListFetchUseCaseImpl(
+            repository,
+            flattener,
+            transformer,
+            testCoroutineDispatcher
+        )
         Dispatchers.setMain(testCoroutineDispatcher)
     }
 
@@ -49,6 +56,10 @@ class SubRedditListFetchUseCaseImplTest {
             cause = mockException,
             reason = mockReason
         )
+        every { transformer.transform(any()) } returns Result.Error(
+            mockException,
+            mockReason
+        )
 
         val errorResult = usecase!!.execute("fake kotlin", null)
 
@@ -59,15 +70,18 @@ class SubRedditListFetchUseCaseImplTest {
 
     @Test
     fun `execute - convert to domain model`() = testCoroutineDispatcher.runBlockingTest {
-        val mockRedditArticles: RedditArticleList = mockk()
+        val mockRedditArticleListItem: RedditArticleListItem = mockk()
         coEvery { repository.getArticlesOf(any(), any()) } returns Result.Success(mockk())
-        every { flattener.convert(any()) } returns DataFixture.createResultSuccess(
-            mockRedditArticles
+        every { flattener.convert(any()) } returns DataFixture.createResultSuccess(mockk())
+        every { transformer.transform(any()) } returns Result.Success(
+            listOf(
+                mockRedditArticleListItem
+            )
         )
 
         val successResult = usecase!!.execute("fake kotlin", null)
 
         successResult as Result.Success
-        Assert.assertEquals(successResult.data, mockRedditArticles)
+        Assert.assertEquals(successResult.data.first(), mockRedditArticleListItem)
     }
 }

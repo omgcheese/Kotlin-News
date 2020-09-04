@@ -5,6 +5,9 @@ import com.cheesycoder.kotlinnews.data.model.ArticleData
 import com.cheesycoder.kotlinnews.data.model.ArticleDataWrapper
 import com.cheesycoder.kotlinnews.data.model.ListingData
 import com.cheesycoder.kotlinnews.data.model.RedditArticles
+import com.cheesycoder.kotlinnews.domain.model.RedditArticle
+import com.cheesycoder.kotlinnews.domain.model.RedditArticleList
+import io.mockk.mockk
 
 object DataFixture {
     fun createRedditArticles(
@@ -19,6 +22,11 @@ object DataFixture {
         val listOfArticleWrappers = listOf(articleWrapper)
         val listingData = ListingData(listOfArticleWrappers, after)
         return RedditArticles(listingData)
+    }
+
+    fun createRedditArticleList(after: String? = null): RedditArticleList {
+        val redditArticle: RedditArticle = mockk(relaxed = true)
+        return RedditArticleList(after, listOf(redditArticle))
     }
 
     fun <T> createResultSuccess(data: T): Result<T> {

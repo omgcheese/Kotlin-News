@@ -16,6 +16,7 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Response
+import java.io.IOException
 
 class RedditRepositoryImplTest {
 
@@ -71,5 +72,16 @@ class RedditRepositoryImplTest {
             val result = repository!!.getArticlesOf("Test name", null)
 
             Assert.assertEquals(result.javaClass, Result.Error::class.java)
+        }
+
+    @Test
+    fun `getArticleOf - network failure should return error result`() =
+        testCoroutineDispatcher.runBlockingTest {
+            coEvery { service.getSubredditArticles(any(), any()) } throws IOException()
+
+            val result = repository!!.getArticlesOf("Test name", null)
+
+            result as Result.Error
+            Assert.assertEquals(result.reason, NETWORK_FAILURE_MESSAGE)
         }
 }
