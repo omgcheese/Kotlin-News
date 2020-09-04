@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="try_again_title">Uh oh. Click to try load again :(</string>
+    <string name="app_name">Kotlin News</string>
+</resources>

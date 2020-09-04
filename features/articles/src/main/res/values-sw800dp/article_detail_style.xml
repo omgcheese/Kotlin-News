@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Article_Style">
+        <item name="layout_constraintWidth_percent">0.6</item>
+    </style>
+</resources>

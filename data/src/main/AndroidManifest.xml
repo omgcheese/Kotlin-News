@@ -1,2 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cheesycoder.kotlinnews.data"/>
+    package="com.cheesycoder.kotlinnews.data">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
