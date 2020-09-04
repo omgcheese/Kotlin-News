@@ -163,7 +163,7 @@ An attribute called `id` is the id of the post. We can use this for diffUtil and
 * Android Jetpack libraries (ViewModel, LiveData, Navigation) for Google's MVVM design pattern recommendation
 * Cardview, RecyclerView for UI requirement
 * jUnit for unit test
-* If there is time, robolectric for instrumental unit tests
+* If there is time, robolectric for instrumental unit tests (Not achieved)
 
 ### Architecture path
 * Aiming for Clean Architecture with MVVM design pattern for testable codebase
@@ -180,4 +180,4 @@ An attribute called `id` is the id of the post. We can use this for diffUtil and
 * All Api error handling must be implemented
 * All Api request must be wrapped with Resource class (Success or Failure)
 * User should be aware of network issue
-* If error was occurred before the first batch was loaded, it should have an option to re-fetch the list again
+* If error was occurred before the first batch was loaded, it should have an option to re-fetch the list again (Not achieved)
